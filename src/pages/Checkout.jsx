@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { useCart } from "../context/CartContext.jsx";
+import { Link, Navigate } from "react-router-dom";
 
 export default function Checkout() {
   const { items, total, clear } = useCart();
@@ -18,12 +19,12 @@ export default function Checkout() {
       <section className="center">
         <h1>Thanks, {order.name}!</h1>
         <p>Order #{order.number} (€{order.total.toFixed(2)}) is in the oven.</p>
-        <a href="/" className="btn">Back to home</a>
+        <Link to="/" className="btn">Back to home</Link>
       </section>
     );
   }
 
-  if (items.length === 0) location.href = "/pizzas";
+  if (items.length === 0) return <Navigate to="/pizzas" replace />;
 
   return (
     <>
@@ -50,7 +51,7 @@ export default function Checkout() {
             ))}
           </ul>
           <p><strong>Total €{total.toFixed(2)}</strong></p>
-          <a href="/cart">Edit basket</a>
+          <Link to="/cart">Edit basket</Link>
         </aside>
       </div>
     </>

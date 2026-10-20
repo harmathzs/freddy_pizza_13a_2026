@@ -20,6 +20,7 @@ export default class App extends Component {
           <Route path="pizzas/:id" element={<PizzaDetail />} />
           <Route path="about" element={<About />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
