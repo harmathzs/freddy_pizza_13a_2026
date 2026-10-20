@@ -17,6 +17,7 @@ export default class App extends Component {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="pizzas" element={<Pizzas />} />
+          <Route path="pizzas/:id" element={<PizzaDetail />} />
           <Route path="about" element={<About />} />
           <Route path="cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
