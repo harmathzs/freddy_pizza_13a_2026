@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import { useCart } from "../context/CartContext.jsx";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function Layout({children=[]}) {
   const { count } = useCart();
@@ -13,18 +14,18 @@ export default function Layout({children=[]}) {
   return (
     <>
       <header className="navbar">
-        <a href="/" className="brand">🍕 Freddy's Pizza</a>
+        <NavLink to="/" className="brand">🍕 Freddy's Pizza</NavLink>
         <nav>
-          <a href="/" end>Home</a>
-          <a href="/pizzas">Pizzas</a>
-          <a href="/about">About</a>
-          <a href="/cart" className="cart-link">
+          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/pizzas">Pizzas</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/cart" className="cart-link">
             Basket {count > 0 && <span className="badge">{count}</span>}
-          </a>
+          </NavLink>
         </nav>
       </header>
       <main className="container">
-        {children}
+        <Outlet />
       </main>
       <footer className="footer">© 2026 Freddy's Pizza · 12 Dough Street</footer>
     </>
