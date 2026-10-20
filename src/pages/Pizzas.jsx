@@ -28,7 +28,9 @@ export default function Pizzas() {
         ))}
       </div>
       <div className="grid">
-        {pizzas.map((p) => (
+        {pizzas.filter((p)=>{
+          return p.tags.includes(pickedFilter) || pickedFilter=='all'
+        }).map((p) => (
           <PizzaCard key={p.id} pizza={p} />
         ))}
       </div>
